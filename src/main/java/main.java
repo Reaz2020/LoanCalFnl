@@ -19,8 +19,9 @@ public class main {
         {
             prospect++;
             b = fileOne.devideString(a.get(i));
-            fileOne.printCustomerOnlyFirstName(b,prospect);
-            fileOne.printCustomerWithSurname(b,prospect);
+            //String print2=fileOne.printCustomerOnlyFirstName(b,prospect);
+            String print=fileOne.printCustomers(b,prospect);
+            System.out.println(print);
         }
         //____________________________________
         System.out.println("for testing ");

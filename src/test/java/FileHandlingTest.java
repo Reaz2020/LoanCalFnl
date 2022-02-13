@@ -1,11 +1,9 @@
+
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FileHandlingTest  {
@@ -103,28 +101,36 @@ class FileHandlingTest  {
     }
 
     @Test
-    void printCustomerWithSurname(ArrayList<String> cl, int prospect) {
-        prospect = 1;
-        String firstName= "Simon ";
-        String surName="And";
+    void printCustomerWithSurname() {
+        String printLine1="****************************************************************************************************";
+        String printLine3="****************************************************************************************************";
+        ArrayList<String> tempList = new ArrayList<>();
+        //FileHandling fileHandling1 = mock(FileHandling.class);
+        int  prospect = 1;
+        String firstName= "Simon";
+        String lastName="And";
         String amount="1000",interest="1",monthlyPay="2",year="4";
-       // ArrayList<String> cl;
-        cl.add(0,firstName);
-        cl.add(1,surName);
-        cl.add(2,amount);
-        cl.add(3,interest);
-        cl.add(4,year);
-        cl.add(5,monthlyPay);
-        printCustomerWithSurname(cl,prospect);
+       // ArrayList<String> tempList;
+        tempList.add(0,firstName);
+        tempList.add(1,lastName);
+        String fullName=tempList.get(0)+tempList.get(1);
+        tempList.add(2,amount);
+        tempList.add(3,interest);
+        tempList.add(4,year);
+        //nest four line was created for testing purpose, I'll calculate the pay back amount and compare if methods returns the same amount.
+        double amount2= Double.parseDouble(amount);
+        double interest2= Double.parseDouble(interest);
+        int year2= Integer.parseInt(year);
+        double monthlyPay2=fileHandling.calculateMonthlyPayment(amount2,interest2,year2);
+        tempList.add(5,monthlyPay);
+        String retrunedValue=fileHandling.printCustomers(tempList,prospect);
+        String printLine2="Prospect : "+prospect+" "+firstName+lastName+ " wants to borrow " + amount2 +" € "+ "  for a period of " + year + " and pay " +monthlyPay2+ " € "+" each month ";
 
-      //  assertEquals("",);
-
+        assertEquals(printLine1+"\n"+printLine2+"\n"+printLine3,retrunedValue);
 
     }
 
-    @Test
-    void printCustomerOnlyFirstName() {
-    }
+
 
 
     FileHandlingTest() throws FileNotFoundException {
