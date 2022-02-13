@@ -103,7 +103,23 @@ class FileHandlingTest  {
     }
 
     @Test
-    void printCustomerWithSurname() {
+    void printCustomerWithSurname(ArrayList<String> cl, int prospect) {
+        prospect = 1;
+        String firstName= "Simon ";
+        String surName="And";
+        String amount="1000",interest="1",monthlyPay="2",year="4";
+       // ArrayList<String> cl;
+        cl.add(0,firstName);
+        cl.add(1,surName);
+        cl.add(2,amount);
+        cl.add(3,interest);
+        cl.add(4,year);
+        cl.add(5,monthlyPay);
+        printCustomerWithSurname(cl,prospect);
+
+      //  assertEquals("",);
+
+
     }
 
     @Test
