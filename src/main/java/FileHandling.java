@@ -62,6 +62,9 @@ return fileContent;
         }cl.add("A");
 
    return cl; }
+
+
+
     public double calculateMonthlyPayment(double amnt , double intrestRate,int year){
 
         if(amnt>0.0&&year>0){
@@ -82,7 +85,8 @@ return fileContent;
 
     }
     public String printCustomers(ArrayList<String> cl, int prospect){
-        String firstName=null,lastName=null;
+        String firstName=null;
+        String lastName=null;
         double amount = 0, interest = 0;
         int year = 0;
         double monthlyPay= 0;
@@ -100,27 +104,24 @@ return fileContent;
             monthlyPay= calculateMonthlyPayment(amount,interest,year);
             printLine2="Prospect : "+prospect+" "+firstName+lastName+ " wants to borrow " + amount +" € "+ "  for a period of " + year + " and pay " +monthlyPay+ " € "+" each month ";
             System.out.println();
-            /*System.out.println(printLine1);
-            System.out.println(printLine2);
-            System.out.println(printLine3);*/
-            String ret=printLine1+"\n"+
-                    printLine2+"\n"+
-                    printLine3;
+            String ret=printLine1+"\n"+ printLine2+"\n"+ printLine3;
             return ret;
 
          }
 
-        else
+        if (cl.get(4)=="A")
             firstName = cl.get(0);
             amount = Double.parseDouble(cl.get(1));
             interest = Double.parseDouble(cl.get(2));
             year = (int) Double.parseDouble(cl.get(3));
             monthlyPay= calculateMonthlyPayment(amount,interest,year);
-
             System.out.println();
             printLine2forSeconed="Prospect : "+prospect+" "+firstName+ " wants to borrow " + amount + " € "+"  for a period of " + year + " and pay " +monthlyPay+ " € "+" each month ";
             String ret2=printLine1+"\n"+printLine2forSeconed+"\n"+printLine3;
-            return  ret2;}
+            return  ret2;
+
+
+    }
     /*public void printCustomerOnlyFirstName(   ArrayList<String> cl, int prospect){
         String firstName;
         double amount = 0, interest = 0;

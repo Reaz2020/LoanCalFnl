@@ -101,33 +101,68 @@ class FileHandlingTest  {
     }
 
     @Test
-    void printCustomerWithSurname() {
+    void printCustomers() {
         String printLine1="****************************************************************************************************";
         String printLine3="****************************************************************************************************";
         ArrayList<String> tempList = new ArrayList<>();
-        //FileHandling fileHandling1 = mock(FileHandling.class);
+        //test customer with surname created and added to the temp list
         int  prospect = 1;
         String firstName= "Simon";
         String lastName="And";
-        String amount="1000",interest="1",monthlyPay="2",year="4";
-       // ArrayList<String> tempList;
+        String amount="1000",interest="1",year="4";
         tempList.add(0,firstName);
         tempList.add(1,lastName);
         String fullName=tempList.get(0)+tempList.get(1);
         tempList.add(2,amount);
         tempList.add(3,interest);
         tempList.add(4,year);
-        //nest four line was created for testing purpose, I'll calculate the pay back amount and compare if methods returns the same amount.
+        //next four lines are created for testing purpose, I'll calculate the pay back amount and compare if methods returns the same amount.
         double amount2= Double.parseDouble(amount);
         double interest2= Double.parseDouble(interest);
         int year2= Integer.parseInt(year);
-        double monthlyPay2=fileHandling.calculateMonthlyPayment(amount2,interest2,year2);
-        tempList.add(5,monthlyPay);
+        double monthlyPay=fileHandling.calculateMonthlyPayment(amount2,interest2,year2);
+       // tempList.add(5,monthlyPay);
+
+        //saving the method return in a string to compare easily in the assert method
         String retrunedValue=fileHandling.printCustomers(tempList,prospect);
-        String printLine2="Prospect : "+prospect+" "+firstName+lastName+ " wants to borrow " + amount2 +" € "+ "  for a period of " + year + " and pay " +monthlyPay2+ " € "+" each month ";
+        //printing customer if has surname
+        String printLine2="Prospect : "+prospect+" "+firstName+lastName+ " wants to borrow " + amount2 +" € "+ "  for a period of " + year + " and pay " +monthlyPay+ " € "+" each month ";
+        //if customer had a surname ,
+        String printLine2_ForCustomerWithOnlyFirstName="Prospect : "+prospect+" "+firstName+ " wants to borrow " + amount2 +" € "+ "  for a period of " + year + " and pay " +monthlyPay+ " € "+" each month ";
 
+        //tested if customer has a surname
         assertEquals(printLine1+"\n"+printLine2+"\n"+printLine3,retrunedValue);
+        //customer has a surname so this assert Not true
+        assertNotEquals(printLine1+"\n"+printLine2_ForCustomerWithOnlyFirstName+printLine3,retrunedValue);
 
+    }
+
+
+    @Test
+    void printCustomers2() {
+        String printLine1 = "****************************************************************************************************";
+        String printLine3 = "****************************************************************************************************";
+
+        //another mock customer making and adding in the tempList2 for testing customer who does not have a surname
+        ArrayList<String> tempList2 = new ArrayList<>();
+        //test customer with surname created and added to the temp list
+        int prospect2 = 2;
+        String firstName2 = "SimonTwo", amount3 = "2000", interest3 = "1.5", year3 = "4";
+        tempList2.add(0, firstName2);
+        tempList2.add(1, amount3);
+        tempList2.add(2, interest3);
+        tempList2.add(3, year3);
+        //added a manually because devideString method add A autometically after each array List
+        tempList2.add(4,"A");
+        //next four lines are created for testing purpose, I'll calculate the pay back amount and compare if methods returns the same amount.
+        double amount4 = Double.parseDouble(amount3);
+        double interest4 = Double.parseDouble(interest3);
+        int year4 = Integer.parseInt(year3);
+        double monthlyPay2 = fileHandling.calculateMonthlyPayment(amount4, interest4, year4);
+        //saving the method return in a string to compare easily in the assert method
+        String retrunedValue2=fileHandling.printCustomers(tempList2,prospect2);
+        String printLine2_forCustomerWithOnlyFirstName = "Prospect : " + prospect2 + " " + firstName2 + " wants to borrow " + amount4 + " € " + "  for a period of " + year4 + " and pay " + monthlyPay2 + " € " + " each month ";
+        assertEquals(printLine1+"\n"+printLine2_forCustomerWithOnlyFirstName+"\n"+printLine3,retrunedValue2);
     }
 
 

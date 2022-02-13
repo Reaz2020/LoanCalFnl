@@ -22,10 +22,10 @@ public class main {
             //String print2=fileOne.printCustomerOnlyFirstName(b,prospect);
             String print=fileOne.printCustomers(b,prospect);
             System.out.println(print);
-        }
-        //____________________________________
-        System.out.println("for testing ");
 
-        System.out.println("for testing index 1 in array list  "+ a.get(1)  );
+        }
+
+
+
     }
 }
