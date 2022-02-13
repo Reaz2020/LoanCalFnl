@@ -47,8 +47,7 @@ return fileContent;
         ArrayList<String> cl = new ArrayList<String>();
         Scanner sc = new Scanner(client);
         String[] personalInfo = sc.nextLine().split(" ");
-        for (int i = 0; i < personalInfo.length; i++) {
-        }
+
         String[] personalInfo2;
         for (int p = 0; p < personalInfo.length; p++) {
             String s = personalInfo[p];
@@ -122,27 +121,7 @@ return fileContent;
 
 
     }
-    /*public void printCustomerOnlyFirstName(   ArrayList<String> cl, int prospect){
-        String firstName;
-        double amount = 0, interest = 0;
-        int year = 0;
-        double monthlyPay= 0;
-        if (cl.get(4)=="A")
-        {    firstName = cl.get(0);
-            amount = Double.parseDouble(cl.get(1));
-            interest = Double.parseDouble(cl.get(2));
-            year = (int) Double.parseDouble(cl.get(3));
-            monthlyPay= calculateMonthlyPayment(amount,interest,year);
 
-            System.out.println();
-
-            System.out.println("****************************************************************************************************");
-            System.out.println("Prospect : "+prospect+" "+firstName+ " wants to borrow " + amount + " € "+"  for a period of " + year + " and pay " +monthlyPay+ " € "+" each month ");
-            System.out.println("****************************************************************************************************");
-
-        }
-
-    }*/
 
 
 
