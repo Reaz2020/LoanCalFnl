@@ -61,9 +61,6 @@ return fileContent;
         }cl.add("A");
 
    return cl; }
-
-
-
     public double calculateMonthlyPayment(double amnt , double intrestRate,int year){
 
         if(amnt>0.0&&year>0){

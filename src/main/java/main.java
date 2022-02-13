@@ -19,7 +19,6 @@ public class main {
         {
             prospect++;
             b = fileOne.devideString(a.get(i));
-            //String print2=fileOne.printCustomerOnlyFirstName(b,prospect);
             String print=fileOne.printCustomers(b,prospect);
             System.out.println(print);
 
