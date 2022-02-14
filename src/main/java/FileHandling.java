@@ -123,6 +123,7 @@ return fileContent;
 
     // this two method I have added to calculate fixed monthly repayment according to the morgatge calculator formate given in the code test
     // without using math class of java but they have not been used here J unit tests have been performom on them
+   //static removed
     public  double power(double x, int y) {
         double temp;
         if (y == 0)
