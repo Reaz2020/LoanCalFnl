@@ -97,7 +97,8 @@ return fileContent;
             amount = Double.parseDouble(cl.get(2));
             interest = Double.parseDouble(cl.get(3));
             year = (int) Double.parseDouble(cl.get(4));
-            monthlyPay= calculateMonthlyPayment(amount,interest,year);
+            //monthlyPay= calculateMonthlyPayment(amount,interest,year);
+            monthlyPay=fixedMonthlyPayment(amount,interest,year);
             printLine2="Prospect : "+prospect+" "+firstName+lastName+ " wants to borrow " + amount +" € "+ "  for a period of " + year + " and pay " +monthlyPay+ " € "+" each month ";
             System.out.println();
             String ret=printLine1+"\n"+ printLine2+"\n"+ printLine3;
@@ -110,7 +111,8 @@ return fileContent;
             amount = Double.parseDouble(cl.get(1));
             interest = Double.parseDouble(cl.get(2));
             year = (int) Double.parseDouble(cl.get(3));
-            monthlyPay= calculateMonthlyPayment(amount,interest,year);
+            //monthlyPay= calculateMonthlyPayment(amount,interest,year);
+             monthlyPay=fixedMonthlyPayment(amount,interest,year);
             System.out.println();
             printLine2forSeconed="Prospect : "+prospect+" "+firstName+ " wants to borrow " + amount + " € "+"  for a period of " + year + " and pay " +monthlyPay+ " € "+" each month ";
             String ret2=printLine1+"\n"+printLine2forSeconed+"\n"+printLine3;
@@ -118,6 +120,34 @@ return fileContent;
 
 
     }
+
+    // this two method I have added to calculate fixed monthly repayment according to the morgatge calculator formate given in the code test
+    // without using math class of java but they have not been used here J unit tests have been performom on them
+    public static double power(double x, int y) {
+        double temp;
+        if (y == 0)
+            return 1;
+        temp = power(x, y / 2);
+
+        if (y % 2 == 0)
+            return temp * temp;
+        else {
+            if (y > 0)
+                return x * temp * temp;
+            else
+                return (temp * temp) / x;
+        }
+    }
+    public static double fixedMonthlyPayment(double totalLoan_U, double interestOnAYearlyBasis_B, int year) {
+        double interestOnAMonthlyBasis_b= (interestOnAYearlyBasis_B/100)/12.0;
+        int numberOfPayMent_P = year * 12;
+        double fixedMonthlyPayment = 0;
+        double InterestOnMonthlyBasisPLUSone = 1 + interestOnAMonthlyBasis_b; //(1 + b)
+        double InterestOnMonthlyBasisPlusOne_toThePower_numberOfPayment = power(InterestOnMonthlyBasisPLUSone, numberOfPayMent_P); // (1 + b)^p]
+        fixedMonthlyPayment = totalLoan_U * (interestOnAMonthlyBasis_b * (InterestOnMonthlyBasisPlusOne_toThePower_numberOfPayment) / (InterestOnMonthlyBasisPlusOne_toThePower_numberOfPayment - 1));
+        return fixedMonthlyPayment;
+    }
+
 
 
 
