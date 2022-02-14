@@ -61,25 +61,6 @@ return fileContent;
         }cl.add("A");
 
    return cl; }
-    public double calculateMonthlyPayment(double amnt , double intrestRate,int year){
-
-        if(amnt>0.0&&year>0){
-            double monthlyReturn;
-            double totalInterest=(amnt*intrestRate)/100;
-            double yearlyReturn=(totalInterest+amnt)/year;
-            monthlyReturn=yearlyReturn/12;
-            return monthlyReturn;
-        }
-        if (intrestRate>-1&&amnt>0.0&&year>0){
-            int totalMonths=year*12;
-            double mnthReturn=amnt/totalMonths;
-            return mnthReturn;
-        }
-        if(amnt==0.0&&year==0){return 0.0;}
-        else return 0.0;
-
-
-    }
     public String printCustomers(ArrayList<String> cl, int prospect){
         String firstName=null;
         String lastName=null;
@@ -152,6 +133,28 @@ return fileContent;
 
 
 
+    //this method is creted because question was a little bit confused about which form of mortgage calculator form will be used,
+    // because it was under optional part
+    //later  (double fixedMonthlyPayment() ) this method was creted and replaced it ,
+    public double calculateMonthlyPayment(double amnt , double intrestRate,int year){
+
+        if(amnt>0.0&&year>0){
+            double monthlyReturn;
+            double totalInterest=(amnt*intrestRate)/100;
+            double yearlyReturn=(totalInterest+amnt)/year;
+            monthlyReturn=yearlyReturn/12;
+            return monthlyReturn;
+        }
+        if (intrestRate>-1&&amnt>0.0&&year>0){
+            int totalMonths=year*12;
+            double mnthReturn=amnt/totalMonths;
+            return mnthReturn;
+        }
+        if(amnt==0.0&&year==0){return 0.0;}
+        else return 0.0;
+
+
+    }
 
 
 }

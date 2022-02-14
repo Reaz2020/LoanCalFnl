@@ -69,7 +69,7 @@ class FileHandlingTest  {
 
     }
 
-    @Test
+    /*@Test
     void calculateMonthlyPayment() {
         double amount = fileHandling.calculateMonthlyPayment(2000.0,6,4);
         double amount2 = fileHandling.calculateMonthlyPayment(0.0,0,1);
@@ -96,7 +96,7 @@ class FileHandlingTest  {
         assertEquals(0.0,amount9,"year amount -1 ");
         assertEquals(0.0,amount10,"values -1 ");
 
-    }
+    }*/
 
     @Test
     void printCustomers() {
@@ -163,6 +163,20 @@ class FileHandlingTest  {
         String retrunedValue2=fileHandling.printCustomers(tempList2,prospect2);
         String printLine2_forCustomerWithOnlyFirstName = "Prospect : " + prospect2 + " " + firstName2 + " wants to borrow " + amount4 + " € " + "  for a period of " + year4 + " and pay " + monthlyPay2 + " € " + " each month ";
         assertEquals(printLine1+"\n"+printLine2_forCustomerWithOnlyFirstName+"\n"+printLine3,retrunedValue2);
+    }
+
+    @Test
+    void power(){
+        assertEquals(27,fileHandling.power(3,3));
+        assertNotEquals(26,fileHandling.power(3,3));
+
+    }
+    @Test
+    void fixedMonthlyPayment(){
+        assertEquals(2124.704471126838,fileHandling.fixedMonthlyPayment(100000,10,5));
+        //test has been performed using boundary value
+        assertNotEquals(2124.704471126848,fileHandling.fixedMonthlyPayment(100000,10,5));
+
     }
 
 
