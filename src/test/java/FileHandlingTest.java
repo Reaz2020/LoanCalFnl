@@ -174,7 +174,7 @@ class FileHandlingTest  {
     @Test
     void fixedMonthlyPayment(){
         assertEquals(2124.704471126838,fileHandling.fixedMonthlyPayment(100000,10,5));
-        //test has been performed using boundary value
+        //test has been performed using boundary value.
         assertNotEquals(2124.704471126848,fileHandling.fixedMonthlyPayment(100000,10,5));
 
     }
