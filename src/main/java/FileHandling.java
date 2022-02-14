@@ -123,7 +123,7 @@ return fileContent;
 
     // this two method I have added to calculate fixed monthly repayment according to the morgatge calculator formate given in the code test
     // without using math class of java but they have not been used here J unit tests have been performom on them
-    public static double power(double x, int y) {
+    public  double power(double x, int y) {
         double temp;
         if (y == 0)
             return 1;
@@ -138,7 +138,7 @@ return fileContent;
                 return (temp * temp) / x;
         }
     }
-    public static double fixedMonthlyPayment(double totalLoan_U, double interestOnAYearlyBasis_B, int year) {
+    public  double fixedMonthlyPayment(double totalLoan_U, double interestOnAYearlyBasis_B, int year) {
         double interestOnAMonthlyBasis_b= (interestOnAYearlyBasis_B/100)/12.0;
         int numberOfPayMent_P = year * 12;
         double fixedMonthlyPayment = 0;

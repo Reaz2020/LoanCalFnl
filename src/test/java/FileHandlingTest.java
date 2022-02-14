@@ -118,7 +118,8 @@ class FileHandlingTest  {
         double amount2= Double.parseDouble(amount);
         double interest2= Double.parseDouble(interest);
         int year2= Integer.parseInt(year);
-        double monthlyPay=fileHandling.calculateMonthlyPayment(amount2,interest2,year2);
+        //double monthlyPay=fileHandling.calculateMonthlyPayment(amount2,interest2,year2);//fixedMonthlyPayment
+        double monthlyPay=fileHandling.fixedMonthlyPayment(amount2,interest2,year2);
        // tempList.add(5,monthlyPay);
 
         //saving the method return in a string to compare easily in the assert method
@@ -156,7 +157,8 @@ class FileHandlingTest  {
         double amount4 = Double.parseDouble(amount3);
         double interest4 = Double.parseDouble(interest3);
         int year4 = Integer.parseInt(year3);
-        double monthlyPay2 = fileHandling.calculateMonthlyPayment(amount4, interest4, year4);
+       // double monthlyPay2 = fileHandling.calculateMonthlyPayment(amount4, interest4, year4);
+        double monthlyPay2 = fileHandling.fixedMonthlyPayment(amount4, interest4, year4);
         //saving the method return in a string to compare easily in the assert method
         String retrunedValue2=fileHandling.printCustomers(tempList2,prospect2);
         String printLine2_forCustomerWithOnlyFirstName = "Prospect : " + prospect2 + " " + firstName2 + " wants to borrow " + amount4 + " € " + "  for a period of " + year4 + " and pay " + monthlyPay2 + " € " + " each month ";
